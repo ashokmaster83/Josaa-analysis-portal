@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <title>JOSAA ANALYSIS PORTAL</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <style>
+  .dropdown-submenu {
+    position: relative;
+  }
+  
+  .dropdown-submenu .dropdown-menu {
+    top: 0;
+    left: 100%;
+    margin-top: -1px;
+  }
+  </style>
+    </head>
+    <body>
+        <div class="container">
+        <h1>JOSAA ANALYSIS PORTAL</h1>
+        <div class="dropdown">
+            <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">Analysis format
+            <span class="caret"></span></button>
+            <ul class="dropdown-menu">
+                <li class="dropdown-submenu">
+                    <a class="test" tabindex="-1" href="#">Insitute-wise comparison <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                      <li><a tabindex="-1" href="{% url 'Institute_neutral' %}">Gender-Neutral</a></li>
+                      <li><a tabindex="-1" href="{% url 'Institute_female' %}">Female</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown-submenu">
+                    <a class="test" tabindex="-1" href="#">Branch-wise comparison <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                      <li><a tabindex="-1" href="{% url 'Branch_neutral' %}">Gender-Neutral</a></li>
+                      <li><a tabindex="-1" href="{% url 'Branch_female' %}">Female</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>      
+    <script>
+        $(document).ready(function(){
+          $('.dropdown-submenu a.test').on("click", function(e){
+            $(this).next('ul').toggle();
+            e.stopPropagation();
+            e.preventDefault();
+          });
+        });
+        </script>  
+
+    </body>
+</html>
